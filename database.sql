@@ -9,14 +9,12 @@ CREATE TABLE users(
 );
 
 CREATE TABLE employees(
-    s_no SERIAL,
-    user_id UUID,
+    user_id uuid DEFAULT uuid_generate_v4(),
     employ_name VARCHAR(255) ,
     gender VARCHAR(255) ,
     designation VARCHAR(255) ,
     city VARCHAR(255),
-    PRIMARY KEY (s_no),
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+    PRIMARY KEY (user_id)
 );
 
 -- fake users
@@ -25,4 +23,4 @@ insert into users (user_name, user_email, user_password) values ('alexcia', 'gir
 
 -- fake employees
 
-insert into employees (user_id, employ_name, gender, designation, city) values ('e924cc7e-6a18-4bdd-88dd-a11c37c21647', 'albert', 'male','developer','chennai');
+insert into employees (employ_name, gender, designation, city) values ('Rebbeca', 'female','lead-developer','chennai');
